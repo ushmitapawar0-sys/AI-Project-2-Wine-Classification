@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+models/*.joblib
+reports/figures/*.png
+!reports/figures/.keep
+data/*
+!data/.keep
