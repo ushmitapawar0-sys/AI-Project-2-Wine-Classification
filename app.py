@@ -91,15 +91,15 @@ elif choice == "2. Data Cleaning & EDA":
             for col in clean_df.columns:
                 if clean_df[col].isnull().sum() > 0:
                     if clean_df[col].dtype == 'object':
-                        clean_df[col].fillna(clean_df[col].mode()[0], inplace=True)
+                        clean_df[col] = clean_df[col].fillna(clean_df[col].mode()[0])
                     else:
-                        clean_df[col].fillna(clean_df[col].median(), inplace=True)
+                        clean_df[col] = clean_df[col].fillna(clean_df[col].median())
         else:
             st.success("No missing values found.")
             
         if dup_count > 0:
             st.write(f"Found **{dup_count}** duplicate rows. Dropping duplicates.")
-            clean_df.drop_duplicates(inplace=True)
+            clean_df = clean_df.drop_duplicates()
         else:
             st.success("No duplicate rows found.")
         
@@ -132,7 +132,7 @@ elif choice == "2. Data Cleaning & EDA":
         with col1:
             st.write("### Target Class Distribution")
             fig, ax = plt.subplots(figsize=(6, 4))
-            sns.countplot(x=target_col, data=clean_df, ax=ax, palette='viridis')
+            sns.countplot(x=target_col, hue=target_col, legend=False, data=clean_df, ax=ax, palette='viridis')
             plt.xticks(rotation=45)
             st.pyplot(fig)
             

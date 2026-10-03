@@ -12,7 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import load_wine
 
-from src.config import RANDOM_STATE, TEST_SIZE, TARGET_ACCURACY, MODELS_DIR, REPORTS_DIR
+from src.config import RANDOM_STATE, TEST_SIZE, TARGET_ACCURACY, MODELS_DIR, REPORTS_DIR, FIGURES_DIR
 from src.data import load_wine_data
 from src.preprocess import create_preprocessor
 from src.evaluate import evaluate_model, plot_confusion_matrix, plot_feature_importance
@@ -28,6 +28,9 @@ def get_models():
     }
 
 def main():
+    MODELS_DIR.mkdir(parents=True, exist_ok=True)
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+    
     print("1. Loading dataset...")
     X, y = load_wine_data()
     data = load_wine()

@@ -3,7 +3,6 @@
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.2+-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
-![CI](https://github.com/placeholder/wine-classification-pipeline/actions/workflows/ci.yml/badge.svg)
 
 ## Problem Statement
 The goal of this project is to classify wine into three distinct cultivars (classes) based on 13 chemical features (e.g., Alcohol, Malic acid, Ash, etc.). We use the classic Wine Dataset from `scikit-learn`.
@@ -55,6 +54,10 @@ Check the detailed metrics and best model in `reports/results.md`.
    ```bash
    # Pass 13 feature values
    python -m src.predict 14.23 1.71 2.43 15.6 127 2.8 3.06 .28 2.29 5.64 1.04 3.92 1065
+   ```
+4. **Run Streamlit App**:
+   ```bash
+   streamlit run app.py
    ```
 
 ## Author
